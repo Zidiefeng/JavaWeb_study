@@ -7,5 +7,21 @@
          version="5.0"
          metadata-complete="true">
 
+    <servlet>
+        <servlet-name>hello</servlet-name>
+        <servlet-class>com.kaitan.servlet.HelloServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>hello</servlet-name>
+        <url-pattern>/hi</url-pattern>
+    </servlet-mapping>
 
+    <servlet>
+        <servlet-name>error</servlet-name>
+        <servlet-class>com.kaitan.servlet.ErrorSevlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>error</servlet-name>
+        <url-pattern>/*</url-pattern>
+    </servlet-mapping>
 </web-app>
