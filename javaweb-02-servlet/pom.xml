@@ -11,6 +11,9 @@
     <modules>
         <module>servlet-01</module>
         <module>servlet-02</module>
+        <module>response</module>
+        <module>request</module>
+        <module>javaweb-session-cookie</module>
     </modules>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/javax.servlet.jsp/javax.servlet.jsp-api -->
@@ -20,6 +23,7 @@
             <version>2.3.1</version>
             <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
