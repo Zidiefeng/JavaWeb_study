@@ -1,6 +1,7 @@
 package com.kaitan.servlet;
 
 import com.kaitan.pojo.Person;
+import org.apache.jasper.runtime.HttpJspBase;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
@@ -23,7 +24,7 @@ public class SessionDemo02 extends HttpServlet {
         System.out.println(person.toString());
 
 
-        HttpJspBase
+
     }
 
     @Override

@@ -13,6 +13,7 @@ public class SessionDemo01 extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         resp.setContentType("text/html;charset=utf-8");
+        
 
         //得到SSession
         HttpSession session = req.getSession();
