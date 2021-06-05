@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="common/head.jsp"%>
-<%@taglib prefix="s" uri="http://www.springframework.org/tags/form" %>
 
 <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.8.3.min.js"></script>
 <script type="text/javascript">
@@ -64,12 +63,12 @@
                 <span>密码修改页面</span>
             </div>
             <div class="providerAdd">
-                <form id="userForm" name="userForm" method="post" action="">
+                <form id="userForm" name="userForm" method="post" action="${pageContext.request.contextPath}/user.do">
                     <input type="hidden" id="userid" value="${user.id}">
                     <!--div的class 为error是验证错误，ok是验证成功-->
                     <div class="info">${message}</div>
                     <div class="">
-                        <label for="oldPassword">旧密码：</label>
+                        <label for="oldpassword">旧密码：</label>
                         <input type="password" name="oldpassword" id="oldpassword" value=""> 
 						<font color="red"></font>
                     </div>
@@ -79,7 +78,7 @@
 						<font color="red"></font>
                     </div>
                     <div>
-                        <label for="reNewPassword">确认新密码：</label>
+                        <label for="rnewpassword">确认新密码：</label>
                         <input type="password" name="rnewpassword" id="rnewpassword" value=""> 
 						<font color="red"></font>
                     </div>
