@@ -20,9 +20,17 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>LogoutServlet</servlet-name>
-    <url-pattern>/logout.do</url-pattern>
+    <url-pattern>/jsp/logout.do</url-pattern>
   </servlet-mapping>
 
+  <servlet>
+    <servlet-name>UserServlet</servlet-name>
+    <servlet-class>com.kaitan.servlet.user.UserServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>UserServlet</servlet-name>
+    <url-pattern>/jsp/user.do</url-pattern>
+  </servlet-mapping>
 
 
   <filter>
@@ -48,4 +56,9 @@
   <welcome-file-list>
     <welcome-file>login.jsp</welcome-file>
   </welcome-file-list>
+
+  <!--默认Session过期时间-真实业务需求-->
+  <session-config>
+    <session-timeout>30</session-timeout>
+  </session-config>
 </web-app>
