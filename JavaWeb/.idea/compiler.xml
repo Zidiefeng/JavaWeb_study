@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="javaweb-01-maven" />
+      </profile>
+      <profile name="Annotation profile for javaweb-01-maven Maven Webapp" enabled="true">
+        <sourceOutputDir name="../../../JavaWeb/target/generated-sources/annotations" />
+        <sourceTestOutputDir name="../../../JavaWeb/target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="JavaWeb" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0"
+         metadata-complete="true">
+  <!--配置一些web应用的初始化参数-->
+  <context-param>
+    <param-name>url</param-name>
+    <param-value>jdbc:mysql://localhost:3306/mybatis</param-value>
+  </context-param>
+
+
+
+  <servlet>
+    <servlet-name>hello</servlet-name>
+    <servlet-class>com.kaitan.servlet.HelloServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>hello</servlet-name>
+    <url-pattern>/hello</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getc</servlet-name>
+    <servlet-class>com.kaitan.servlet.GetServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getc</servlet-name>
+    <url-pattern>/getc</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>getp</servlet-name>
+    <servlet-class>com.kaitan.servlet.ServletDemo03</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getp</servlet-name>
+    <url-pattern>/getp</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>sd4</servlet-name>
+    <servlet-class>com.kaitan.servlet.ServletDemo04</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sd4</servlet-name>
+    <url-pattern>/sd4</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>sd5</servlet-name>
+    <servlet-class>com.kaitan.servlet.ServletDemo05</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>sd5</servlet-name>
+    <url-pattern>/sd5</url-pattern>
+  </servlet-mapping>
+</web-app>

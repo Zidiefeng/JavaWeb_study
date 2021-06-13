@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee
+                      https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0"
+         metadata-complete="true">
+
+<!--注册servlet-->
+  <servlet>
+      <servlet-name>helloServlet</servlet-name>
+      <servlet-class>com.kaitan.servlet.HelloServlet</servlet-class>
+  </servlet>
+
+  <!--一个servlet对应一个mapping（映射）-->
+  <servlet-mapping>
+    <servlet-name>helloServlet</servlet-name> <!--跟上面的servlet-name一致-->
+    <url-pattern>/kaitan</url-pattern> <!--映射的请求路径,map到上面的class,即可以调用class内的get, post函数了-->
+  </servlet-mapping>
+
+</web-app>
