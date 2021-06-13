@@ -9,18 +9,25 @@
                 <span>用户管理页面</span>
             </div>
             <div class="search">
-           		<form method="get" action="${pageContext.request.contextPath }/user/userlist">
+           		<form method="get" action="${pageContext.request.contextPath }/jsp/user.do">
+					<input name="method" value="query" class="input-text" type="hidden">
 					 <span>用户名：</span>
-					 <input name="username" class="input-text"	type="text" value="${username }">
-					 <span>用户角色：</span>
-					 <select name="rolename">
-						   <option value="">--请选择--</option>
-						   <c:forEach items="${roleNames }" var="rname">
-						   		<option value="${rname}" <c:if test="${rolename==rname}">selected</c:if>>${rname}</option>
-						   </c:forEach>
+					 <input name="queryName" class="input-text"	type="text" value="${queryUserName}">
+
+					<span>用户角色：</span>
+					 <select name="queryUserRole">
+						 <c:if test="${roleList!=null}">
+							 <option value="0">--请选择--</option>
+							 <c:forEach items="${roleList}" var="role">
+								 <option <c:if test="${role.id}==${queryRoleName}">selected="selected"</c:if>
+										 value="${role.id}"> ${role.roleName}</option>
+							 </c:forEach>
+						 </c:if>
 	        		</select>
-					 <input	value="查 询" type="submit" id="searchbutton">
-					 <a href="${pageContext.request.contextPath }/user/useradd">添加用户</a>
+
+					<input type="hidden" name="pageIndex" value="1"/>
+					<input	value="查 询" type="submit" id="searchbutton">
+					<a href="${pageContext.request.contextPath }/user/useradd">添加用户</a>
 				</form>
             </div>
             <!--用户-->
@@ -34,52 +41,43 @@
                     <th width="10%">电话</th>
                     <th width="30%">操作</th>
                 </tr>
-                <c:forEach items="${pageInfo.list }" var="ur">
+                <c:forEach items="${userList}" var="ur" varStatus="status">
 					<tr>
 						<td>
-						<span>${ur.usercode}</span>
+							<span>${ur.userCode}</span>
 						</td>
 						<td>
-						<span>${ur.username }</span>
+							<span>${ur.userName }</span>
 						</td>
 						<td>
-							<span>${ur.rolename }</span>
+							<span>${ur.userRole }</span>
 						</td>
 						<td>
 							<span>${ur.gender==1?"男":"女" }</span>
 						</td>
 						<td>
-						<span><f:formatDate value="${ur.birthday}" pattern="yyyy-MM-dd"/></span>
+						    <span><f:formatDate value="${ur.birthday}" pattern="yyyy-MM-dd"/></span>
 						</td>
 						<td>
-						<span>${ur.phone}</span>
+							<span>${ur.phone}</span>
 						</td>
 						
 						<td>
-						<span><a class="viewUser" href="${pageContext.request.contextPath }/user/userview?id=${ur.id}"><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
-						<span><a class="modifyUser" href="${pageContext.request.contextPath }/user/usermodify?id=${ur.id}&flag=update"><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
-						<span><a class="deleteUser" href="${pageContext.request.contextPath }/user/userdel?id=${ur.id}"><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
+							<span><a class="viewUser" href="${pageContext.request.contextPath }/user/userview?id=${ur.id}"><img src="${pageContext.request.contextPath }/images/read.png" alt="查看" title="查看"/></a></span>
+							<span><a class="modifyUser" href="${pageContext.request.contextPath }/user/usermodify?id=${ur.id}&flag=update"><img src="${pageContext.request.contextPath }/images/xiugai.png" alt="修改" title="修改"/></a></span>
+							<span><a class="deleteUser" href="${pageContext.request.contextPath }/user/userdel?id=${ur.id}"><img src="${pageContext.request.contextPath }/images/schu.png" alt="删除" title="删除"/></a></span>
 						</td>
 					</tr>
 				</c:forEach>
 			</table>
 			<div class="page-bar">
-			<ul class="page-num-ul clearfix">
-				<li>共${pageInfo.total}条记录&nbsp;&nbsp; ${pageInfo.pageNum}/${pageInfo.pages}页</li>
-					<a href="${pageContext.request.contextPath }/user/userlist?n=${pageInfo.firstPage}&username=${username}&rolename=${rolename}">首页</a>
-					<a href="${pageContext.request.contextPath }/user/userlist?n=${pageInfo.prePage}&username=${username}&rolename=${rolename}">上一页</a>
-					<c:forEach items="${pageInfo.navigatepageNums}" var="num">
-						<a href="${pageContext.request.contextPath }/user/userlist?n=${num}&username=${username}&rolename=${rolename}">${num}</a>
-					</c:forEach>
-					<a href="${pageContext.request.contextPath }/user/userlist?n=${pageInfo.nextPage}&username=${username}&rolename=${rolename}">下一页</a>
-					<a href="${pageContext.request.contextPath }/user/userlist?n=${pageInfo.lastPage}&username=${username}&rolename=${rolename}">最后一页</a>
-				&nbsp;&nbsp;
-			</ul>
-		 <!-- <span class="page-go-form"><label>跳转至</label>
-	     <input type="text" name="inputPage" id="inputPage" class="page-key" />页
-	     <button type="button" class="page-btn" onClick=''>GO</button>
-		</span> -->
-		</div> 
+				<input type="hidden" id="totalPageCount" value="${totalPageCount}"/>
+				<c:import url="rollpage.jsp">
+					<c:param name="totalCount" value="${totalCount}"/>
+					<c:param name="currentPageNo" value="${currentPageNo}"/>
+					<c:param name="totalPageCount" value="${totalPageCount}"/>
+				</c:import>
+			</div>
         </div>
     </section>
 
